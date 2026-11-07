@@ -1873,6 +1873,51 @@ input, select, textarea {
   background: #fecaca;
 }
 
+/* Team Login & Admin Security Extensions */
+.admin-session-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.btn-admin-logout {
+  transition: all 0.2s ease;
+}
+
+.btn-admin-logout:hover {
+  background: #fecaca !important;
+  color: #991b1b !important;
+}
+
+.login-error-alert {
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.contact-form-box input:focus,
+.contact-form-box select:focus,
+.contact-form-box textarea:focus,
+#adminModal input:focus,
+#adminModal select:focus,
+#adminModal textarea:focus,
+#adminLoginModal input:focus {
+  outline: none;
+  border-color: var(--primary-green) !important;
+  box-shadow: 0 0 0 3px rgba(27, 131, 84, 0.15);
+}
+
 /* Toast alert */
 .toast-notice {
   position: fixed;

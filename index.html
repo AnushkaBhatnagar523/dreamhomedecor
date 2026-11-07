@@ -193,6 +193,9 @@
         <a href="tel:8251009855" class="btn-prop-call" style="justify-content: center; width: 100%; padding: 10px;">
           <span>📞 Call 8251009855</span>
         </a>
+        <button id="btnOpenAdminMobile" class="btn-admin-nav" style="justify-content: center; width: 100%; margin-top: 10px; display: flex; padding: 10px; border-radius: var(--radius-sm); border: none; cursor: pointer;">
+          <span>⚙️ Team / Admin Portal</span>
+        </button>
       </div>
     </div>
   </div>
@@ -915,7 +918,7 @@
             <div class="contact-tile-text">
               <h4>Official Email</h4>
               <p><a href="mailto:contact@dreamhomeindore.com" style="color: #2563eb; font-weight: 600;">contact@dreamhomeindore.com</a></p>
-              <p style="font-size: 12px; color: #64748b;">(नया बिजनेस ईमेल सेटअप सहायता उपलब्ध)</p>
+              <p style="font-size: 12px; color: #64748b;">(Direct alerts to inbox for every query)</p>
             </div>
           </div>
 
@@ -957,16 +960,70 @@
           </a>
         </div>
 
-        <!-- Google Maps Embed of Indore -->
-        <div class="map-embed-wrapper">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117763.5516086389!2d75.79527633719036!3d22.724213799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade" 
-            title="Dream Home Indore Office Map Location">
-          </iframe>
+        <!-- Direct Contact Query Form -->
+        <div class="contact-form-box" style="background: #ffffff; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="margin-bottom: 20px;">
+            <span style="background: #ecfdf5; color: #15803d; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px;">⚡ Instant Callback</span>
+            <h3 style="font-size: 20px; font-weight: 800; color: #0f172a; margin: 8px 0 4px 0;">Send Us Your Query</h3>
+            <p style="font-size: 13px; color: #64748b;">Get instant response on your WhatsApp & Email from our Indore specialists.</p>
+          </div>
+
+          <form id="contactQueryForm">
+            <div class="booking-form-grid" style="margin-bottom: 14px;">
+              <div class="form-group">
+                <label for="contactQueryName" style="font-weight: 700; font-size: 12.5px; color: #334155;">Your Full Name *</label>
+                <input type="text" id="contactQueryName" placeholder="e.g. Amit Verma" required style="padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; width: 100%; font-size: 13.5px;">
+              </div>
+              <div class="form-group">
+                <label for="contactQueryPhone" style="font-weight: 700; font-size: 12.5px; color: #334155;">Mobile / WhatsApp Number *</label>
+                <input type="tel" id="contactQueryPhone" placeholder="e.g. 98260XXXXX" required style="padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; width: 100%; font-size: 13.5px;">
+              </div>
+            </div>
+
+            <div class="booking-form-grid" style="margin-bottom: 14px;">
+              <div class="form-group">
+                <label for="contactQueryCategory" style="font-weight: 700; font-size: 12.5px; color: #334155;">Interested Property Type *</label>
+                <select id="contactQueryCategory" style="padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; width: 100%; font-size: 13.5px;">
+                  <option value="Residential Plots (Super Corridor / Bypass)">Residential Plots (Super Corridor / Bypass)</option>
+                  <option value="Farmhouses (AB Bypass Road / Mhow)">Farmhouses (AB Bypass Road / Mhow)</option>
+                  <option value="Luxury Flats (Vijay Nagar / AB Road)">Luxury Flats (Vijay Nagar / AB Road)</option>
+                  <option value="Residential Houses & Villas (Nipania)">Residential Houses & Villas (Nipania)</option>
+                  <option value="Commercial / Investment Land">Commercial / Investment Land</option>
+                  <option value="General Property Consultation">General Property Consultation</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contactQueryBudget" style="font-weight: 700; font-size: 12.5px; color: #334155;">Budget / Preferred Corridor</label>
+                <input type="text" id="contactQueryBudget" placeholder="e.g. ₹ 40-70 Lakh, Near Vijay Nagar" style="padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; width: 100%; font-size: 13.5px;">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label for="contactQueryMessage" style="font-weight: 700; font-size: 12.5px; color: #334155;">Your Requirements or Questions</label>
+              <textarea id="contactQueryMessage" rows="3" placeholder="Tell us about your requirement, preferred facing, possession timeline..." style="padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; width: 100%; font-size: 13.5px;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-action-wa-big" style="width: 100%; justify-content: center; padding: 12px; font-size: 14.5px; font-weight: 700; background: #1b8354; border-radius: 8px; border: none; cursor: pointer;">
+              <span>Submit Query (Sent to Email & WhatsApp)</span>
+              <span>⚡</span>
+            </button>
+            <div style="font-size: 11px; color: #64748b; text-align: center; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <span>🔒 100% Privacy</span> • <span>Instant Alert to Dream Home Team</span>
+            </div>
+          </form>
         </div>
+      </div>
+
+      <!-- Google Maps Embed of Indore -->
+      <div class="map-embed-wrapper" style="margin-top: 30px; border-radius: 16px; overflow: hidden; height: 320px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117763.5516086389!2d75.79527633719036!3d22.724213799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade" 
+          title="Dream Home Indore Office Map Location"
+          style="width: 100%; height: 100%; border: 0;">
+        </iframe>
       </div>
     </div>
   </section>
@@ -1118,12 +1175,16 @@
       <button class="modal-close-btn modal-close-trigger">&times;</button>
       <div class="modal-body">
         <div style="font-size: 50px; margin-bottom: 10px;">🎉</div>
-        <h3 style="font-size: 22px; font-weight: 800; color: #0f172a;">Site Visit Request Received!</h3>
+        <h3 id="confirmModalTitle" style="font-size: 22px; font-weight: 800; color: #0f172a;">Inquiry Received Successfully!</h3>
         
         <div id="confirmModalDetails"></div>
 
-        <a id="confirmModalWaBtn" href="#" target="_blank" class="btn-action-wa-big" style="width: 100%; justify-content: center; margin-top: 15px;">
-          💬 Send Confirmation to WhatsApp (8251009855)
+        <div style="font-size: 12px; color: #15803d; font-weight: 600; margin: 10px 0 6px 0; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 6px 12px;">
+          ⚡ Query alert dispatched to Dream Home Management via Email & WhatsApp
+        </div>
+
+        <a id="confirmModalWaBtn" href="#" target="_blank" class="btn-action-wa-big" style="width: 100%; justify-content: center; margin-top: 12px;">
+          💬 Chat with Dream Home on WhatsApp (8251009855)
         </a>
       </div>
     </div>
@@ -1142,27 +1203,110 @@
   </div>
 
   <!-- ==========================================================================
-       MODAL: ADMIN PANEL (Add / Edit / Delete Properties + View Leads)
+       MODAL: TEAM & ADMIN LOGIN (ID & Password Protection)
+       ========================================================================== -->
+  <div id="adminLoginModal" class="modal-backdrop">
+    <div class="modal-card" style="max-width: 440px;">
+      <button class="modal-close-btn modal-close-trigger">&times;</button>
+      <div class="modal-body" style="padding: 32px 28px;">
+        <div style="text-align: center; margin-bottom: 22px;">
+          <div style="width: 58px; height: 58px; background: #ecfdf5; border: 2px solid #a7f3d0; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 12px;">
+            🔐
+          </div>
+          <h2 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">Team & Admin Portal</h2>
+          <p style="font-size: 13px; color: #64748b;">Sign in with your Team ID & Password to access management</p>
+        </div>
+
+        <form id="adminLoginForm">
+          <div id="adminLoginError" class="login-error-alert" style="display: none; background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 16px;"></div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="adminLoginUsername" style="font-weight: 700; font-size: 13px; color: #334155; margin-bottom: 6px; display: block;">Team Member ID / Username *</label>
+            <div style="position: relative;">
+              <input type="text" id="adminLoginUsername" placeholder="e.g. admin or sales" required autocomplete="username" style="width: 100%; padding: 11px 14px 11px 38px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px;">
+              <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 16px; opacity: 0.6;">👤</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="adminLoginPassword" style="font-weight: 700; font-size: 13px; color: #334155; margin-bottom: 6px; display: block;">Password *</label>
+            <div style="position: relative;">
+              <input type="password" id="adminLoginPassword" placeholder="Enter your password" required autocomplete="current-password" style="width: 100%; padding: 11px 40px 11px 38px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px;">
+              <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 16px; opacity: 0.6;">🔑</span>
+              <button type="button" id="adminTogglePwBtn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 16px; opacity: 0.6; padding: 4px;" title="Show/Hide Password">👁️</button>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 13px;">
+            <label style="display: flex; align-items: center; gap: 7px; color: #475569; cursor: pointer; user-select: none;">
+              <input type="checkbox" id="adminLoginRemember" style="accent-color: #1b8354; width: 16px; height: 16px;">
+              <span>Keep me logged in</span>
+            </label>
+            <span style="color: #64748b; font-size: 12px;">Dream Home Indore</span>
+          </div>
+
+          <button type="submit" class="btn-action-wa-big" style="width: 100%; justify-content: center; padding: 12px; font-size: 15px; font-weight: 700; border-radius: 10px; background: #1b8354; border: none; cursor: pointer;">
+            <span>Sign In to Admin Panel</span>
+            <span>→</span>
+          </button>
+        </form>
+
+        <!-- Default Credentials Quick Guide -->
+        <div style="margin-top: 20px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #475569;">
+          <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px; display: flex; align-items: center; gap: 6px;">
+            <span>🔑</span> <span>Default Team Credentials:</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #f1f5f9;">
+            <span>👑 Super Admin:</span>
+            <span><code>ID: admin</code> | <code>Pass: admin123</code></span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 3px 0;">
+            <span>💼 Sales Team:</span>
+            <span><code>ID: sales</code> | <code>Pass: sales123</code></span>
+          </div>
+          <div style="margin-top: 6px; color: #64748b; font-size: 11px;">
+            * Passwords & team accounts can be added or edited inside the Team tab!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: ADMIN PANEL (Full Management Dashboard)
        ========================================================================== -->
   <div id="adminModal" class="modal-backdrop">
-    <div class="modal-card" style="max-width: 900px;">
+    <div class="modal-card" style="max-width: 960px;">
       <button class="modal-close-btn modal-close-trigger">&times;</button>
-      <div class="modal-body">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+      <div class="modal-body" style="padding: 26px 28px;">
+        <!-- Admin Header with Session Info & Logout -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0;">
           <div>
-            <h2 style="font-size: 24px; font-weight: 800; color: #0f172a;">⚙️ Dream Home Admin Panel</h2>
-            <p style="font-size: 13px; color: #64748b;">Manage properties, post new listings, and view client inquiries</p>
+            <h2 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 3px;">⚙️ Dream Home Admin Panel</h2>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <span class="admin-session-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #15803d; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px;">
+                <span>👤</span> <span id="adminSessionUserName">Admin</span> <small id="adminSessionUserRole" style="font-weight: 500; opacity: 0.85;">(Administrator)</small>
+              </span>
+              <span style="font-size: 12px; color: #64748b;">Indore Headquarters Management</span>
+            </div>
           </div>
-          <button id="btnResetDefaultProperties" style="font-size: 12px; color: #ef4444; text-decoration: underline; background: none; border: none; cursor: pointer;">
-            Reset Default Listings
-          </button>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <button id="btnResetDefaultProperties" style="font-size: 12px; color: #ef4444; text-decoration: underline; background: none; border: none; cursor: pointer;">
+              Reset Default Listings
+            </button>
+            <button id="btnAdminLogout" class="btn-admin-logout" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; padding: 6px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+              <span>🚪 Sign Out</span>
+            </button>
+          </div>
         </div>
 
         <!-- Admin Navigation Tabs -->
-        <div class="admin-tabs">
+        <div class="admin-tabs" style="overflow-x: auto; white-space: nowrap;">
           <button id="adminTabProps" class="admin-tab-btn active">🏡 All Properties</button>
           <button id="adminTabAdd" class="admin-tab-btn">➕ Add New Property</button>
-          <button id="adminTabBookings" class="admin-tab-btn">📅 Site Visit Leads</button>
+          <button id="adminTabBookings" class="admin-tab-btn">📅 Leads & Queries (<span id="adminLeadCountBadge">0</span>)</button>
+          <button id="adminTabTeam" class="admin-tab-btn">👥 Team Logins</button>
+          <button id="adminTabSettings" class="admin-tab-btn">🔔 Email & WhatsApp Alerts</button>
         </div>
 
         <!-- TAB 1: Properties Table -->
@@ -1274,24 +1418,205 @@
           </form>
         </div>
 
-        <!-- TAB 3: Site Visit Bookings Table -->
+        <!-- TAB 3: Enhanced Site Visit Leads & Queries Table -->
         <div id="adminViewBookings" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="text" id="adminLeadSearchInput" placeholder="🔍 Search leads by name, phone, or location..." style="padding: 7px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 13px; width: 280px;">
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button id="btnExportLeadsCsv" style="background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                <span>📥 Export to CSV (Excel)</span>
+              </button>
+            </div>
+          </div>
+
           <div class="admin-table-wrapper">
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>Booking ID</th>
-                  <th>Client Name & Phone</th>
-                  <th>Property / Category</th>
-                  <th>Date & Time</th>
-                  <th>Free Pickup</th>
+                  <th>Lead / Ref</th>
+                  <th>Client & Phone</th>
+                  <th>Property / Interest</th>
+                  <th>Date & Pickup</th>
                   <th>Status</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody id="adminBookingsList">
                 <!-- Rendered dynamically -->
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <!-- TAB 4: Team Accounts & Security -->
+        <div id="adminViewTeam" style="display: none;">
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;">
+            <!-- Left Column: Active Team Members Table -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h4 style="font-size: 16px; font-weight: 800; color: #0f172a;">👥 Active Team Login Accounts</h4>
+                <span style="font-size: 12px; color: #64748b;">Authorized Indore Staff</span>
+              </div>
+              <div class="admin-table-wrapper" style="border: 1px solid #e2e8f0; border-radius: 8px;">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>User ID</th>
+                      <th>Name & Role</th>
+                      <th>Phone</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminTeamUsersList">
+                    <!-- Rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Change My Password Box -->
+              <div style="margin-top: 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px;">
+                <h4 style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 12px;">🔒 Change My Password</h4>
+                <form id="adminChangePasswordForm">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                    <div>
+                      <label style="font-size: 11.5px; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Current Password *</label>
+                      <input type="password" id="changePwCurrent" required placeholder="Current" style="width: 100%; padding: 7px 10px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 12.5px;">
+                    </div>
+                    <div>
+                      <label style="font-size: 11.5px; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">New Password *</label>
+                      <input type="password" id="changePwNew" required placeholder="New" style="width: 100%; padding: 7px 10px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 12.5px;">
+                    </div>
+                    <div>
+                      <label style="font-size: 11.5px; font-weight: 700; color: #475569; display: block; margin-bottom: 4px;">Confirm New *</label>
+                      <input type="password" id="changePwConfirm" required placeholder="Confirm" style="width: 100%; padding: 7px 10px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 12.5px;">
+                    </div>
+                  </div>
+                  <button type="submit" style="background: #0f172a; color: #ffffff; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12.5px; font-weight: 700; cursor: pointer;">
+                    Update Password
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Right Column: Add New Team Member Form -->
+            <div>
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 20px;">
+                <h4 style="font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 4px;">➕ Add New Team Member</h4>
+                <p style="font-size: 12.5px; color: #64748b; margin-bottom: 16px;">Create a new login ID and password for sales executives or site managers.</p>
+
+                <form id="adminAddTeamMemberForm">
+                  <div class="form-group" style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Full Name *</label>
+                    <input type="text" id="newTeamName" placeholder="e.g. Rahul Sharma" required style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Login ID / Username *</label>
+                    <input type="text" id="newTeamUsername" placeholder="e.g. rahul_sales" required style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Login Password *</label>
+                    <input type="password" id="newTeamPassword" placeholder="Minimum 6 characters" required style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Role *</label>
+                    <select id="newTeamRole" required style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+                      <option value="Sales Executive">Sales Executive</option>
+                      <option value="Site Visit Manager">Site Visit Manager</option>
+                      <option value="Relationship Manager">Relationship Manager</option>
+                      <option value="Administrator">Administrator</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Mobile / WhatsApp Phone</label>
+                    <input type="tel" id="newTeamPhone" placeholder="e.g. 98260XXXXX" style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+                  </div>
+
+                  <button type="submit" class="btn-action-wa-big" style="width: 100%; justify-content: center; padding: 10px; font-size: 13.5px; font-weight: 700; border-radius: 6px; background: #1b8354; border: none; cursor: pointer;">
+                    Create Team Account
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: Email & WhatsApp Query Notifications Settings -->
+        <div id="adminViewSettings" style="display: none;">
+          <div style="max-width: 720px; margin: 0 auto;">
+            <!-- Email Settings Card -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px; margin-bottom: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 24px;">📧</span>
+                  <div>
+                    <h3 style="font-size: 16px; font-weight: 800; color: #0f172a; margin: 0;">Email Query Notifications</h3>
+                    <p style="font-size: 12px; color: #64748b; margin: 0;">Receive an instant formatted email alert every time a customer submits a query or booking.</p>
+                  </div>
+                </div>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: #15803d; cursor: pointer;">
+                  <input type="checkbox" id="settingEmailEnabled" checked style="accent-color: #1b8354; width: 16px; height: 16px;">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 12px;">
+                <label style="font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Recipient Email Address (Where you want leads sent) *</label>
+                <div style="display: flex; gap: 8px;">
+                  <input type="email" id="settingNotifyEmail" placeholder="e.g. contact@dreamhomeindore.com or yourname@gmail.com" value="contact@dreamhomeindore.com" required style="flex: 1; padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 13.5px;">
+                  <button type="button" id="btnTestEmailAlert" style="background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; white-space: nowrap;">
+                    ⚡ Test Email Now
+                  </button>
+                </div>
+                <div id="testEmailStatus" style="margin-top: 6px; font-size: 12px;"></div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 11.5px; color: #475569; line-height: 1.5;">
+                <strong style="color: #0f172a;">ℹ️ How Email Delivery Works:</strong> Powered by FormSubmit. The very first time a new email address receives a query, FormSubmit will send a 1-click confirmation email to verify your ownership. Once clicked, all future customer leads are delivered to your inbox instantly!
+              </div>
+            </div>
+
+            <!-- WhatsApp Settings Card -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px; margin-bottom: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="font-size: 24px;">💬</span>
+                <div>
+                  <h3 style="font-size: 16px; font-weight: 800; color: #0f172a; margin: 0;">WhatsApp Lead Routing</h3>
+                  <p style="font-size: 12px; color: #64748b; margin: 0;">Receive client queries directly on your WhatsApp and forward to your sales agents.</p>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 14px;">
+                <label style="font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Business / Team WhatsApp Number *</label>
+                <div style="display: flex; gap: 8px;">
+                  <input type="text" id="settingNotifyPhone" placeholder="e.g. 8251009855" value="8251009855" required style="flex: 1; padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 13.5px;">
+                  <button type="button" id="btnTestWaAlert" style="background: #ecfdf5; color: #15803d; border: 1px solid #a7f3d0; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; white-space: nowrap;">
+                    📲 Test WhatsApp Link
+                  </button>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 12px;">
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #334155; cursor: pointer;">
+                  <input type="checkbox" id="settingAutoWa" checked style="accent-color: #1b8354; width: 16px; height: 16px;">
+                  <span><strong>Auto-launch WhatsApp chat</strong> when visitor completes inquiry submission</span>
+                </label>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 11.5px; color: #475569; line-height: 1.5;">
+                <strong style="color: #0f172a;">📲 1-Click WhatsApp Lead Forwarding:</strong> In the "Leads & Queries" tab, each customer entry features a "Chat Client" button and a "Forward to Team" button to share leads directly in WhatsApp groups!
+              </div>
+            </div>
+
+            <!-- Save Notification Settings Button -->
+            <button type="button" id="btnSaveSettings" class="btn-action-wa-big" style="width: 100%; justify-content: center; padding: 13px; font-size: 15px; font-weight: 700; background: #1b8354; border-radius: 10px; border: none; cursor: pointer;">
+              <span>💾 Save Notification & WhatsApp Settings</span>
+            </button>
           </div>
         </div>
       </div>

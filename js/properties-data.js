@@ -263,6 +263,41 @@ const DEFAULT_PROPERTIES = [
 
 const LOCAL_STORAGE_KEY = "dream_home_indore_properties_v1";
 const BOOKINGS_STORAGE_KEY = "dream_home_indore_bookings_v1";
+const TEAM_USERS_STORAGE_KEY = "dream_home_indore_team_users_v1";
+const SETTINGS_STORAGE_KEY = "dream_home_indore_settings_v1";
+const SESSION_STORAGE_KEY = "dream_home_indore_session_v1";
+
+// Default Authorized Team Logins (ID & Password)
+const DEFAULT_TEAM_USERS = [
+  {
+    id: "usr-admin",
+    username: "admin",
+    password: "admin123",
+    name: "Super Admin",
+    role: "Administrator",
+    phone: "8251009855",
+    isSuperAdmin: true,
+    createdAt: "01 Nov 2026"
+  },
+  {
+    id: "usr-sales",
+    username: "sales",
+    password: "sales123",
+    name: "Indore Sales Team",
+    role: "Sales Executive",
+    phone: "8251009855",
+    isSuperAdmin: false,
+    createdAt: "01 Nov 2026"
+  }
+];
+
+// Default Query Notification Settings
+const DEFAULT_SETTINGS = {
+  notificationEmail: "contact@dreamhomeindore.com",
+  notificationPhone: "8251009855",
+  autoOpenWhatsApp: true,
+  emailNotificationsEnabled: true
+};
 
 // Helper functions for Property Data
 function getStoredProperties() {
@@ -295,6 +330,7 @@ function resetPropertiesToDefault() {
   return DEFAULT_PROPERTIES;
 }
 
+// Helper functions for Bookings / Queries
 function getStoredBookings() {
   try {
     const raw = localStorage.getItem(BOOKINGS_STORAGE_KEY);
@@ -309,6 +345,130 @@ function saveBooking(booking) {
     const bookings = getStoredBookings();
     bookings.unshift(booking);
     localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(bookings));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function updateBookingStatus(id, newStatus) {
+  try {
+    const bookings = getStoredBookings();
+    const target = bookings.find(b => b.id === id);
+    if (target) {
+      target.status = newStatus;
+      localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(bookings));
+      return true;
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
+function deleteBooking(id) {
+  try {
+    const bookings = getStoredBookings().filter(b => b.id !== id);
+    localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(bookings));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+// Helper functions for Team Login & Authentication
+function getStoredTeamUsers() {
+  try {
+    const raw = localStorage.getItem(TEAM_USERS_STORAGE_KEY);
+    if (!raw) {
+      localStorage.setItem(TEAM_USERS_STORAGE_KEY, JSON.stringify(DEFAULT_TEAM_USERS));
+      return DEFAULT_TEAM_USERS;
+    }
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : DEFAULT_TEAM_USERS;
+  } catch (e) {
+    return DEFAULT_TEAM_USERS;
+  }
+}
+
+function saveTeamUsers(users) {
+  try {
+    localStorage.setItem(TEAM_USERS_STORAGE_KEY, JSON.stringify(users));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function authenticateUser(username, password) {
+  const users = getStoredTeamUsers();
+  const trimmedUser = (username || "").trim().toLowerCase();
+  const trimmedPass = (password || "").trim();
+  const match = users.find(u => u.username.toLowerCase() === trimmedUser && u.password === trimmedPass);
+  return match || null;
+}
+
+function getTeamSession() {
+  try {
+    // Check sessionStorage first, then localStorage (for Remember Me)
+    const sessionRaw = sessionStorage.getItem(SESSION_STORAGE_KEY) || localStorage.getItem(SESSION_STORAGE_KEY);
+    return sessionRaw ? JSON.parse(sessionRaw) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setTeamSession(user, remember = false) {
+  try {
+    const sessionData = {
+      id: user.id,
+      username: user.username,
+      name: user.name,
+      role: user.role,
+      isSuperAdmin: !!user.isSuperAdmin,
+      loginAt: new Date().toISOString()
+    };
+    const stringified = JSON.stringify(sessionData);
+    if (remember) {
+      localStorage.setItem(SESSION_STORAGE_KEY, stringified);
+    } else {
+      sessionStorage.setItem(SESSION_STORAGE_KEY, stringified);
+    }
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function clearTeamSession() {
+  try {
+    sessionStorage.removeItem(SESSION_STORAGE_KEY);
+    localStorage.removeItem(SESSION_STORAGE_KEY);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+// Helper functions for Query Notification Settings
+function getStoredSettings() {
+  try {
+    const raw = localStorage.getItem(SETTINGS_STORAGE_KEY);
+    if (!raw) {
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(DEFAULT_SETTINGS));
+      return DEFAULT_SETTINGS;
+    }
+    return Object.assign({}, DEFAULT_SETTINGS, JSON.parse(raw));
+  } catch (e) {
+    return DEFAULT_SETTINGS;
+  }
+}
+
+function saveSettings(settings) {
+  try {
+    const current = getStoredSettings();
+    const updated = Object.assign({}, current, settings);
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(updated));
     return true;
   } catch (e) {
     return false;

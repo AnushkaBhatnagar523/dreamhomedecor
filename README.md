@@ -80,12 +80,31 @@ A modern, high-converting real estate website built specifically for **Dream Hom
 - **Mobile Responsive Design**:
   - Sticky bottom action bar on phones with quick `Call Now`, `WhatsApp`, and `Book Visit` buttons.
   - Mobile slide-out drawer menu.
-- **Admin Panel (Manage Your Properties Directly)**:
-  - Click `⚙️ Admin` in the top header or in the footer.
-  - **All Properties**: View all listings with instant delete/edit actions.
-  - **Add New Property**: Form to post new plots, farmhouses, flats, or houses with custom price, size, facing, photo, and RERA number.
-  - **Site Visit Leads**: View all client booking requests with their phone number, date, and pickup requirement.
-  - All saved automatically in your browser's `localStorage` so changes persist even after refresh!
+- **Admin Panel & Team Login Portal (Protected by ID & Password)**:
+  - Click `⚙️ Admin` in the top header, in the mobile menu, or in the footer.
+  - **Team Login Authentication**:
+    - Sign in with Team ID & Password.
+    - Default Super Admin: `ID: admin` | `Password: admin123`
+    - Default Sales Team: `ID: sales` | `Password: sales123`
+    - Option to keep session logged in on your device.
+    - Prominent `Sign Out` button with active session username & role badge.
+  - **🏡 All Properties**: View all listings with instant delete/edit actions.
+  - **➕ Add New Property**: Post new plots, farmhouses, flats, or houses with price, size, facing, photo, and RERA number.
+  - **📅 Leads & Inquiries Manager**:
+    - Centralized inbox for all client submissions: Site Visits, Quick Property Bookings, and Contact inquiries.
+    - Real-time search filter and **1-click Export to CSV (Excel)**.
+    - Inline lead status dropdown (`New Lead`, `Contacted`, `Visit Done`, `Booked`, `Closed`).
+    - 1-click **"💬 Chat"** button to message customer directly on WhatsApp.
+    - 1-click **"📢 Forward"** button to share lead summary to team WhatsApp group.
+  - **👥 Team & Accounts**:
+    - View active team logins.
+    - Add new team members (Name, Login ID, Password, Role, Phone).
+    - Change your own login password securely.
+  - **🔔 Email & WhatsApp Notifications Setup**:
+    - **Email Alerts**: Automatically sends an instant formatted HTML email for every single query via FormSubmit.co to your target email address (e.g. `contact@dreamhomeindore.com` or your personal Gmail).
+    - **Live Email Test**: "⚡ Test Email Now" button in the admin settings to verify delivery to your inbox.
+    - **WhatsApp Alerts**: Automatic WhatsApp deep-linking + 1-click customer chat + team forwarding.
+    - All configurations saved in persistent browser storage!
 
 ---
 
