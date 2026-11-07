@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Quick-fill credentials helper for demo/owner
-  window.quickFillCredentials = function(username, password) {
+  window.quickFillCredentials = function (username, password) {
     if (loginUsername) loginUsername.value = username;
     if (loginPassword) loginPassword.value = password;
     if (loginErrorBanner) loginErrorBanner.style.display = "none";
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const query = (dashLeadSearch?.value || "").toLowerCase().trim();
     if (query) {
-      leads = leads.filter(b => 
+      leads = leads.filter(b =>
         (b.name + " " + b.phone + " " + b.category + " " + b.id + " " + (b.notes || "")).toLowerCase().includes(query)
       );
     }
@@ -502,18 +502,18 @@ document.addEventListener("DOMContentLoaded", () => {
           _template: "table"
         })
       })
-      .then(res => res.json())
-      .then(data => {
-        if (testEmailStatus) {
-          testEmailStatus.innerHTML = `<span style="color: #15803d; font-weight: 700;">✅ Test email dispatched to ${email}! Check your inbox (or Spam/Promotions folder).</span>`;
-        }
-        showAdminToast("📧 Test email dispatched successfully!");
-      })
-      .catch(err => {
-        if (testEmailStatus) {
-          testEmailStatus.innerHTML = `<span style="color: #dc2626;">❌ Transmission error: ${err.message}. Please check connection.</span>`;
-        }
-      });
+        .then(res => res.json())
+        .then(data => {
+          if (testEmailStatus) {
+            testEmailStatus.innerHTML = `<span style="color: #15803d; font-weight: 700;">✅ Test email dispatched to ${email}! Check your inbox (or Spam/Promotions folder).</span>`;
+          }
+          showAdminToast("📧 Test email dispatched successfully!");
+        })
+        .catch(err => {
+          if (testEmailStatus) {
+            testEmailStatus.innerHTML = `<span style="color: #dc2626;">❌ Transmission error: ${err.message}. Please check connection.</span>`;
+          }
+        });
     });
   }
 
@@ -580,7 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================================================
   // Global Window Helpers for Inline Table Actions
   // ========================================================================
-  window.dashDeleteProperty = function(id) {
+  window.dashDeleteProperty = function (id) {
     if (confirm("Are you sure you want to delete this property listing?")) {
       const props = getStoredProperties().filter(p => p.id !== id);
       savePropertiesToStorage(props);
@@ -589,7 +589,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.dashDeleteLead = function(id) {
+  window.dashDeleteLead = function (id) {
     if (confirm("Delete this inquiry from leads list?")) {
       deleteBooking(id);
       renderLeadsTable();
@@ -597,13 +597,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.dashChangeLeadStatus = function(id, newStatus) {
+  window.dashChangeLeadStatus = function (id, newStatus) {
     updateBookingStatus(id, newStatus);
     renderLeadsTable();
     showAdminToast(`Status updated to "${newStatus}"`);
   };
 
-  window.dashDeleteTeamUser = function(username) {
+  window.dashDeleteTeamUser = function (username) {
     if (confirm(`Are you sure you want to remove team account "${username}"?`)) {
       const users = getStoredTeamUsers().filter(u => u.username !== username);
       saveTeamUsers(users);
@@ -612,13 +612,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.dashChatClientWa = function(phone, name) {
+  window.dashChatClientWa = function (phone, name) {
     const cleanPhone = (phone || "").replace(/\D/g, "");
     const text = encodeURIComponent(`Hello ${name}! I am calling from Dream Home Real Estate Indore regarding your property inquiry. How may I assist you today?`);
     window.open(`https://wa.me/91${cleanPhone}?text=${text}`, "_blank");
   };
 
-  window.dashForwardLeadWa = function(leadId) {
+  window.dashForwardLeadWa = function (leadId) {
     const bookings = getStoredBookings();
     const lead = bookings.find(b => b.id === leadId);
     if (!lead) return;
@@ -655,3 +655,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3500);
   }
 });
+
