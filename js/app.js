@@ -792,14 +792,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (btnOpenAdmin) btnOpenAdmin.addEventListener("click", handleAdminAccess);
-    if (btnOpenAdminFooter) {
-      btnOpenAdminFooter.addEventListener("click", (e) => {
-        e.preventDefault();
-        handleAdminAccess();
-      });
-    }
-    if (btnOpenAdminMobile) btnOpenAdminMobile.addEventListener("click", handleAdminAccess);
+    // Admin buttons now link directly to the standalone admin.html login page
+    // Optional modal fallback:
+    window.openAdminModalFallback = handleAdminAccess;
 
     // Toggle Password Visibility in Login Modal
     if (adminTogglePwBtn && adminLoginPassword) {
