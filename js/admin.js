@@ -132,13 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Quick-fill credentials helper for demo/owner
-  window.quickFillCredentials = function (username, password) {
-    if (loginUsername) loginUsername.value = username;
-    if (loginPassword) loginPassword.value = password;
-    if (loginErrorBanner) loginErrorBanner.style.display = "none";
-  };
-
   // Sign Out
   if (btnDashboardLogout) {
     btnDashboardLogout.addEventListener("click", () => {

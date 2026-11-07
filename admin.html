@@ -321,25 +321,6 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
-    /* Demo Quick Fill Buttons */
-    .demo-btn-pill {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 3px 8px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #0f172a;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-
-    .demo-btn-pill:hover {
-      background: #ecfdf5;
-      border-color: #1b8354;
-      color: #1b8354;
-    }
-
     @media (max-width: 768px) {
       .login-card {
         padding: 28px 20px;
@@ -405,29 +386,11 @@
         </button>
       </form>
 
-      <!-- Quick Credentials Hint & 1-Click Auto-Fill -->
-      <div style="margin-top: 24px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 14px 16px; font-size: 12px; color: #475569;">
-        <div style="font-weight: 700; color: #0f172a; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
-          <span>🔑 Default Team Accounts:</span>
-          <span style="font-size: 11px; color: #16a34a; font-weight: 600;">(Click to quick-fill)</span>
-        </div>
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #f1f5f9;">
-          <span>👑 <strong>Super Admin</strong>: <code>admin</code></span>
-          <button type="button" class="demo-btn-pill" onclick="quickFillCredentials('admin', 'admin123')">Fill Admin (Pass: admin123)</button>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0;">
-          <span>💼 <strong>Sales Team</strong>: <code>sales</code></span>
-          <button type="button" class="demo-btn-pill" onclick="quickFillCredentials('sales', 'sales123')">Fill Sales (Pass: sales123)</button>
-        </div>
-
-        <div style="margin-top: 8px; color: #64748b; font-size: 11px; line-height: 1.4;">
-          * You can add additional team members or change passwords anytime in the Team tab.
-        </div>
+      <div style="text-align: center; margin-top: 24px; padding-top: 18px; border-top: 1px solid #f1f5f9; font-size: 12px; color: #64748b; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <span>🔒 256-bit Secure Authentication</span> • <span>Dream Home Indore</span>
       </div>
 
-      <div style="text-align: center; margin-top: 20px;">
+      <div style="text-align: center; margin-top: 16px;">
         <a href="index.html" style="color: #64748b; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
           <span>← Return to Public Website</span>
         </a>

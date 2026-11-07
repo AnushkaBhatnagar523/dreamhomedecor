@@ -81,13 +81,10 @@ A modern, high-converting real estate website built specifically for **Dream Hom
   - Sticky bottom action bar on phones with quick `Call Now`, `WhatsApp`, and `Book Visit` buttons.
   - Mobile slide-out drawer menu.
 - **Dedicated Admin Panel & Team Login Page (`admin.html`)**:
-  - Open `admin.html` in your browser or click `⚙️ Admin Login` from the header, mobile drawer, or footer.
+  - Open `admin.html` in your browser directly or access via the footer.
   - **Standalone Team Login Page**:
-    - Beautiful dedicated login interface with Indore branding.
-    - Sign in with Team ID & Password.
-    - Default Super Admin: `ID: admin` | `Password: admin123`
-    - Default Sales Team: `ID: sales` | `Password: sales123`
-    - One-click demo credentials auto-fill buttons.
+    - Secure dedicated login interface with Indore branding.
+    - Protected by Team Member ID & Password (configured privately by the administrator).
     - "Keep me logged in" session persistence option.
     - Prominent `Sign Out` button with active session username & role badge.
   - **🏡 All Properties**: View all listings with instant delete/edit actions.
