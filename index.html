@@ -81,7 +81,7 @@
   <header class="site-header">
     <div class="nav-container">
       <!-- Logo: House with green leaf motif -->
-      <a href="#home" class="brand-logo" title="Dream Home Real Estate Indore">
+      <a href="index.html" class="brand-logo" title="Dream Home Real Estate Indore">
         <svg class="logo-icon-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- House contour -->
           <path d="M12 52L50 20L88 52V84C88 86.2 86.2 88 84 88H16C13.8 88 12 86.2 12 84V52Z" stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -101,28 +101,28 @@
 
       <!-- Navigation Links -->
       <nav class="main-nav">
-        <a href="#home" class="nav-link active" data-en="Home" data-hi="होम">Home</a>
-        <a href="#about" class="nav-link" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+        <a href="index.html" class="nav-link active" data-en="Home" data-hi="होम">Home</a>
+        <a href="about.html" class="nav-link" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
         
         <!-- Buy Property Dropdown -->
         <div class="nav-dropdown-wrapper">
-          <a href="#property-listings" class="nav-link" data-en="Buy Property" data-hi="प्रॉपर्टी खरीदें">
+          <a href="properties.html" class="nav-link" data-en="Buy Property" data-hi="प्रॉपर्टी खरीदें">
             Buy Property <span class="dropdown-arrow">▼</span>
           </a>
           <div class="dropdown-menu">
-            <a href="#property-listings" class="dropdown-item" onclick="filterNavCategory('plots')">🟢 Residential Plots</a>
-            <a href="#property-listings" class="dropdown-item" onclick="filterNavCategory('farmhouses')">🟡 Farmhouses</a>
-            <a href="#property-listings" class="dropdown-item" onclick="filterNavCategory('flats')">🔵 Flats</a>
-            <a href="#property-listings" class="dropdown-item" onclick="filterNavCategory('houses')">🟣 Residential Houses</a>
+            <a href="properties.html?category=plots" class="dropdown-item">🟢 Residential Plots</a>
+            <a href="properties.html?category=farmhouses" class="dropdown-item">🟡 Farmhouses</a>
+            <a href="properties.html?category=flats" class="dropdown-item">🔵 Flats</a>
+            <a href="properties.html?category=houses" class="dropdown-item">🟣 Residential Houses</a>
           </div>
         </div>
 
-        <a href="#property-listings" class="nav-link" onclick="filterNavCategory('plots')" data-en="Plots" data-hi="प्लॉट्स">Plots</a>
-        <a href="#property-listings" class="nav-link" onclick="filterNavCategory('farmhouses')" data-en="Farmhouses" data-hi="फार्महाउस">Farmhouses</a>
-        <a href="#property-listings" class="nav-link" onclick="filterNavCategory('flats')" data-en="Flats" data-hi="फ्लैट्स">Flats</a>
-        <a href="#property-listings" class="nav-link" onclick="filterNavCategory('houses')" data-en="Houses" data-hi="हाउस">Houses</a>
-        <a href="#gallery" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
-        <a href="#contact" class="nav-link" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
+        <a href="properties.html?category=plots" class="nav-link" data-en="Plots" data-hi="प्लॉट्स">Plots</a>
+        <a href="properties.html?category=farmhouses" class="nav-link" data-en="Farmhouses" data-hi="फार्महाउस">Farmhouses</a>
+        <a href="properties.html?category=flats" class="nav-link" data-en="Flats" data-hi="फ्लैट्स">Flats</a>
+        <a href="properties.html?category=houses" class="nav-link" data-en="Houses" data-hi="हाउस">Houses</a>
+        <a href="gallery.html" class="nav-link" data-en="Gallery" data-hi="गैलरी">Gallery</a>
+        <a href="contact.html" class="nav-link" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
       </nav>
 
       <!-- Right Header Controls: Social Icons + WhatsApp Pill + Lang + Admin -->
@@ -171,14 +171,15 @@
       </div>
 
       <nav style="display: flex; flex-direction: column; gap: 14px; font-size: 16px; font-weight: 600;">
-        <a href="#home" class="mobile-drawer-link">Home</a>
-        <a href="#about" class="mobile-drawer-link">About Us</a>
-        <a href="#property-listings" class="mobile-drawer-link" onclick="filterNavCategory('plots')">Residential Plots</a>
-        <a href="#property-listings" class="mobile-drawer-link" onclick="filterNavCategory('farmhouses')">Farmhouses</a>
-        <a href="#property-listings" class="mobile-drawer-link" onclick="filterNavCategory('flats')">Flats</a>
-        <a href="#property-listings" class="mobile-drawer-link" onclick="filterNavCategory('houses')">Residential Houses</a>
-        <a href="#gallery" class="mobile-drawer-link">Gallery</a>
-        <a href="#contact" class="mobile-drawer-link">Contact Us</a>
+        <a href="index.html" class="mobile-drawer-link" style="color: #1b8354;">Home</a>
+        <a href="about.html" class="mobile-drawer-link">About Us</a>
+        <a href="properties.html" class="mobile-drawer-link">Buy Property (All)</a>
+        <a href="properties.html?category=plots" class="mobile-drawer-link">🟢 Residential Plots</a>
+        <a href="properties.html?category=farmhouses" class="mobile-drawer-link">🟡 Farmhouses</a>
+        <a href="properties.html?category=flats" class="mobile-drawer-link">🔵 Flats</a>
+        <a href="properties.html?category=houses" class="mobile-drawer-link">🟣 Residential Houses</a>
+        <a href="gallery.html" class="mobile-drawer-link">Gallery</a>
+        <a href="contact.html" class="mobile-drawer-link">Contact Us</a>
       </nav>
 
       <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0;">
@@ -523,6 +524,17 @@
       <div id="propertiesGrid" class="properties-grid">
         <!-- Rendered dynamically by app.js -->
       </div>
+
+      <!-- Banner linking to properties.html -->
+      <div style="text-align: center; margin-top: 40px; padding: 26px 20px; background: #f8fafc; border-radius: 14px; border: 1.5px dashed #cbd5e1;">
+        <h4 style="font-size: 19px; font-weight: 800; color: #0f172a; margin-bottom: 6px;">Looking to Explore More Approved Properties in Indore?</h4>
+        <p style="font-size: 14px; color: #64748b; margin-bottom: 18px; max-width: 650px; margin-left: auto; margin-right: auto;">
+          Browse our complete catalog of verified residential plots, luxury farmhouses, modern apartments, and villas with interactive search and price filters.
+        </p>
+        <a href="properties.html" class="btn-action-primary" style="background: #1b8354; color: #ffffff; padding: 13px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 15px;">
+          <span>🏡 View All Properties with Full Interactive Search & Filter →</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -735,9 +747,14 @@
             </div>
           </div>
 
-          <a href="#contact" class="btn-action-call-big" style="display: inline-flex;">
-            Connect with Our Advisor →
-          </a>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="about.html" class="btn-action-primary" style="display: inline-flex; align-items: center; gap: 8px; background: #1b8354; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-weight: 700; text-decoration: none;">
+              Read Our Full Story & Credentials →
+            </a>
+            <a href="contact.html" class="btn-action-call-big" style="display: inline-flex;">
+              Contact Indore Office
+            </a>
+          </div>
         </div>
 
         <div style="position: relative;">
@@ -864,6 +881,12 @@
         <div style="border-radius: 14px; overflow: hidden; height: 240px; box-shadow: var(--shadow-sm);">
           <img src="assets/images/hero_banner_indore.jpg" alt="Indore Skyline Villa" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 35px;">
+        <a href="gallery.html" class="btn-action-primary" style="display: inline-flex; align-items: center; gap: 8px; background: #1b8354; color: #ffffff; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none;">
+          <span>📸 View Full Photo Gallery with Filters (9+ Sites) →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1020,6 +1043,13 @@
           style="width: 100%; height: 100%; border: 0;">
         </iframe>
       </div>
+
+      <!-- Direct Link to Contact Page -->
+      <div style="text-align: center; margin-top: 25px;">
+        <a href="contact.html" style="font-size: 14.5px; font-weight: 700; color: #1b8354; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          <span>📍 Looking for Head Office Directions or Detailed Contact Info? Visit Dedicated Contact Page →</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1043,27 +1073,27 @@
           </div>
         </div>
 
-        <!-- Col 2: Categories -->
+        <!-- Col 2: Navigation -->
         <div>
-          <h4 class="footer-col-title">Categories</h4>
+          <h4 class="footer-col-title">Navigation</h4>
           <ul class="footer-links-list">
-            <li><a href="#property-listings" onclick="filterNavCategory('plots')">Residential Plots</a></li>
-            <li><a href="#property-listings" onclick="filterNavCategory('farmhouses')">Farmhouses</a></li>
-            <li><a href="#property-listings" onclick="filterNavCategory('flats')">Modern Flats</a></li>
-            <li><a href="#property-listings" onclick="filterNavCategory('houses')">Residential Houses</a></li>
-            <li><a href="#calculator">EMI Calculator</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Dream Home</a></li>
+            <li><a href="properties.html">All Properties in Indore</a></li>
+            <li><a href="gallery.html">Project Photo Gallery</a></li>
+            <li><a href="contact.html">Contact Office & Map</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Key Indore Locations -->
+        <!-- Col 3: Property Types & Locations -->
         <div>
-          <h4 class="footer-col-title">Indore Locations</h4>
+          <h4 class="footer-col-title">Property Types</h4>
           <ul class="footer-links-list">
-            <li><a href="#property-listings" onclick="filterNavLocation('Super Corridor')">Super Corridor</a></li>
-            <li><a href="#property-listings" onclick="filterNavLocation('Vijay Nagar')">Vijay Nagar</a></li>
-            <li><a href="#property-listings" onclick="filterNavLocation('Bypass')">AB Bypass Road</a></li>
-            <li><a href="#property-listings" onclick="filterNavLocation('Nipania')">Nipania & DB City</a></li>
-            <li><a href="#property-listings" onclick="filterNavLocation('Rau')">Rau / Pithampur Link</a></li>
+            <li><a href="properties.html?category=plots">Residential Plots (Super Corridor)</a></li>
+            <li><a href="properties.html?category=farmhouses">Luxury Farmhouses (AB Bypass)</a></li>
+            <li><a href="properties.html?category=flats">Modern Flats (Vijay Nagar)</a></li>
+            <li><a href="properties.html?category=houses">Villas & Houses (Nipania)</a></li>
+            <li><a href="properties.html?location=Rau">Properties in Rau / AB Road</a></li>
           </ul>
         </div>
 

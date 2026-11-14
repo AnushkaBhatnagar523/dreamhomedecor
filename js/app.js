@@ -21,11 +21,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetFilterBtn = document.getElementById("btnResetFilters");
   const langToggleBtn = document.getElementById("langToggleBtn");
 
+  // Read URL query parameters (e.g., properties.html?category=plots)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get("category");
+    const locParam = urlParams.get("location");
+    if (catParam && ["plots", "farmhouses", "flats", "houses"].includes(catParam.toLowerCase())) {
+      activeCategory = catParam.toLowerCase();
+      categoryTabs.forEach(t => {
+        if (t.dataset.category === activeCategory) t.classList.add("active");
+        else t.classList.remove("active");
+      });
+    }
+    if (locParam) {
+      activeLocation = locParam;
+      if (locationSelect) locationSelect.value = locParam;
+    }
+  } catch (err) {
+    console.warn("URL params parsing error:", err);
+  }
+
   // Initialize
   initLanguage(currentLanguage);
   renderProperties();
   initEmiCalculator();
   initEventListeners();
+  initGalleryFilter();
   setupAdminPanel();
 
   // ========================================================================
@@ -205,6 +226,12 @@ document.addEventListener("DOMContentLoaded", () => {
     heroCatPills.forEach(pill => {
       pill.addEventListener("click", () => {
         const cat = pill.dataset.category;
+        if (!cat) return;
+        const isPropsPage = window.location.pathname.endsWith("properties.html");
+        if (!isPropsPage) {
+          window.location.href = `properties.html?category=${cat}`;
+          return;
+        }
         activeCategory = cat;
         // sync tabs
         categoryTabs.forEach(t => {
@@ -212,7 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
           else t.classList.remove("active");
         });
         renderProperties();
-        // Scroll to listings section
         const sec = document.getElementById("property-listings");
         if (sec) sec.scrollIntoView({ behavior: "smooth" });
       });
@@ -223,14 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("click", (e) => {
         const cat = card.dataset.category;
         if (cat) {
-          activeCategory = cat;
-          categoryTabs.forEach(t => {
-            if (t.dataset.category === cat) t.classList.add("active");
-            else t.classList.remove("active");
-          });
-          renderProperties();
-          const sec = document.getElementById("property-listings");
-          if (sec) sec.scrollIntoView({ behavior: "smooth" });
+          window.location.href = `properties.html?category=${cat}`;
         }
       });
     });
@@ -315,6 +334,11 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("click", () => {
         const loc = card.dataset.location;
         if (loc) {
+          const isPropsPage = window.location.pathname.endsWith("properties.html");
+          if (!isPropsPage) {
+            window.location.href = `properties.html?location=${encodeURIComponent(loc)}`;
+            return;
+          }
           activeLocation = loc;
           if (locationSelect) locationSelect.value = loc;
           renderProperties();
@@ -354,6 +378,27 @@ document.addEventListener("DOMContentLoaded", () => {
       else t.classList.remove("active");
     });
     renderProperties();
+  }
+
+  function initGalleryFilter() {
+    const galleryFilterBtns = document.querySelectorAll(".gallery-filter-btn");
+    const galleryItemCards = document.querySelectorAll(".gallery-item-card");
+    if (galleryFilterBtns.length === 0) return;
+
+    galleryFilterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        galleryFilterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filterVal = btn.dataset.filter || "all";
+        galleryItemCards.forEach(card => {
+          if (filterVal === "all" || card.dataset.category === filterVal) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
   }
 
   // ========================================================================
